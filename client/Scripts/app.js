@@ -1,4 +1,11 @@
-/* custom JS goes here */
+/*
+COMP308-W2019-MidTerm-300950009
+
+File name: client/Scripts/app.js
+Student's name: Hyojin Kim
+Student's number: 300950009
+Date: February 25, 2019
+*/
 
 /* pagination code from http://www.bootply.com/lxa0FF9yhw */
 $.fn.pageMe = function(opts){

@@ -1,5 +1,14 @@
 <% include ../partials/header.ejs %>
 
+<!--
+COMP308-W2019-MidTerm-300950009
+
+File name: books/index.ejs
+Student's name: Hyojin Kim
+Student's number: 300950009
+Date: February 25, 2019
+-->
+
     <!-- MAIN CONTENT -->
     <div class="container">
       <div class="row">
@@ -29,15 +38,15 @@
                   <td class="text-center"><%= books[count].Author %></td>
                   <td class="text-center"><%= books[count].Genre %></td>
 
+                  <!-- EDIT BUTTON -->
                   <td class="text-center">
-                    <!-- EDIT BUTTON -->
                     <a href="/books/<%= books[count]._id %>" class="btn btn-primary">
                       <i class="fas fa-pencil-alt"></i> Edit
                     </a>
                   </td>
 
+                  <!-- DELETE BUTTON -->
                   <td class="text-center">
-                    <!-- DELETE BUTTON -->
                     <a href="/books/delete/<%= books[count]._id %>" class="btn btn-danger">
                       <i class="fas fa-trash-alt"></i> Delete
                     </a>

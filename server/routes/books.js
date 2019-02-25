@@ -1,3 +1,12 @@
+/*
+COMP308-W2019-MidTerm-300950009
+
+File name: server/routes/books.js
+Student's name: Hyojin Kim
+Student's number: 300950009
+Date: February 25, 2019
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -11,7 +20,8 @@ router.get('/', (req, res, next) => {
   // find all books in the books collection
   book.find((err, books) => {
     if (err) {
-      return console.error(err);
+      console.log(err);
+      res.end(err);
     }
     else {
       res.render('books/index', {
@@ -32,6 +42,7 @@ router.get('/add', (req, res, next) => {
 
 // POST process the Book Details page and create a new Book - CREATE
 router.post('/add', (req, res, next) => {
+  // create book model
   let newBook = book({
     "Title": req.body.title,
     "Description": req.body.description,
@@ -40,6 +51,7 @@ router.post('/add', (req, res, next) => {
     "Genre": req.body.genre
   });
 
+  // create method to add a new book to the database
   book.create(newBook, (err, book) => {
     if (err) {
       console.log(err);
@@ -56,9 +68,11 @@ router.post('/add', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   let id = req.params.id;
 
+  // findById method to render the book details view
   book.findById(id, (err, book) => {
     if (err) {
-      return console.error(err);
+      console.log(err);
+      res.end(err);
     }
     else {
       res.render('books/details', {
@@ -73,6 +87,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/:id', (req, res, next) => {
   let id = req.params.id;
 
+  // create book model
   let updatedBook = book({
     "_id": id,
     "Title": req.body.title,
@@ -82,6 +97,7 @@ router.post('/:id', (req, res, next) => {
     "Genre": req.body.genre
   });
 
+  // update method to edit an existing book in the database
   book.update({_id: id}, updatedBook, (err) => {
     if(err) {
       console.log(err);
@@ -98,11 +114,14 @@ router.post('/:id', (req, res, next) => {
 router.get('/delete/:id', (req, res, next) => {
   let id = req.params.id;
 
+  // remove method to delete an existing book in the database
   book.remove({_id: id}, (err) => {
     if (err) {
-      return console.error(err);
+      console.log(err);
+      res.end(err);
     } 
     else {
+      // refresh the book list
       res.redirect('/books');
     }
   });

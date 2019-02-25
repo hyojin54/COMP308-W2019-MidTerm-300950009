@@ -1,3 +1,12 @@
+/*
+COMP308-W2019-MidTerm-300950009
+
+File name: server/app.js
+Student's name: Hyojin Kim
+Student's number: 300950009
+Date: February 25, 2019
+*/
+
 // moddules for node and express
 let createError = require('http-errors');
 let express = require('express');

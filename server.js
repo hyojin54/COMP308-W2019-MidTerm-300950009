@@ -1,3 +1,12 @@
+/*
+COMP308-W2019-MidTerm-300950009
+
+File name: server.js
+Student's name: Hyojin Kim
+Student's number: 300950009
+Date: February 25, 2019
+*/
+
 let app = require('./server/app');
 let debug = require('debug')('comp308-w2019-midterm:server');
 let http = require('http');
