@@ -72,7 +72,7 @@ app.use('/books', books);
 // Passport User Configuration
 
 // create a user model
-let UserModel = require('../models/user');
+let UserModel = require('./models/users');
 let User = UserModel.User;
 
 // implement a user strategy
