@@ -35,19 +35,31 @@ Date: February 25, 2019
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
+        <!-- Authentication (display name) -->
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text"><i class="fa fa-lg fa-user"></i> Welcome, <%= displayName %></li>
+        <% } %>
+
+        <!-- Home -->
         <% if(title == "Home") { %>
           <li class="active"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
         <% } else { %>
           <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
         <% } %>
 
-          <% if(title == "books") { %>
-          <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
-          </i> Books List</a></li>
-          <% } else { %>
-            <li><a href="/books"><i class="fa fa-book fa-lg">
-            </i> Books List</a></li>
-          <% } %>
+        <!-- Books -->
+        <% if(title == "books") { %>
+          <li class="active"><a href="/books"><i class="fa fa-book fa-lg"></i> Books List</a></li>
+        <% } else { %>
+          <li><a href="/books"><i class="fa fa-book fa-lg"></i> Books List</a></li>
+        <% } %>
+
+        <!-- Authentication (login/logout buttons) -->
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="nav-item"><a href="/logout" class="nav-link"><i class="fa fa-lg fa-sign-out"></i> Logout</a></li>
+        <% } else { %>
+          <li class="nav-item"><a href="/login" class="nav-link"><i class="fa fa-lg fa-sign-in"></i> Login</a></li>
+        <% } %>
 
       </ul>
     </div><!-- /.navbar-collapse -->
