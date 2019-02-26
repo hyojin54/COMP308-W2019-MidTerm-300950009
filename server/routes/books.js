@@ -62,7 +62,7 @@ router.post('/add', requireAuth, (req, res, next) => {
   });
 
   // create method to add a new book to the database
-  book.create(newBook, requireAuth, (err, book) => {
+  book.create(newBook, (err, book) => {
     if (err) {
       console.log(err);
       res.end(err);
@@ -108,7 +108,7 @@ router.post('/:id', requireAuth, (req, res, next) => {
   });
 
   // update method to edit an existing book in the database
-  book.update({_id: id}, requireAuth, updatedBook, (err) => {
+  book.update({_id: id}, updatedBook, (err) => {
     if(err) {
       console.log(err);
       res.end(err);
